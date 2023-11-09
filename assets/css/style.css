@@ -47,6 +47,17 @@ body{
 	overflow-x:hidden;
 }
 
+.tab-content {
+    display: none;
+}
+.active-tab {
+    display: block;
+}
+
+.lab4{
+    margin-left: 10%;
+}
+
 a,a:hover,a:active,a:focus {
 	display:inline-block;
 	text-decoration:none;
