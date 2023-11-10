@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quản lý sách</title>
+    <style>
+        /* CSS */
+         body{
+            font-family: Arial, Helvetica, sans-serif;
+         }
+        .book-item {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        /* Ẩn phần thêm/sửa sách mặc định */
+        #addUpdateTab {
+            display: none;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <h1>Quản lý sách</h1>
+    <div>
+        <input type="text" id="searchInput" placeholder="Tìm kiếm sách">
+        <button onclick="searchBooks()">Tìm kiếm</button>
+        <button id="toggleButton" onclick="toggleAddUpdateTab()">Thêm</button>
+    </div>
+    <div id="booksList"></div>
+    <div id="addUpdateTab">
+        <h2>Thêm/sửa sách</h2>
+        <input type="text" id="title" placeholder="Tên sách">
+        <input type="text" id="author" placeholder="Tác giả">
+        <input type="text" id="price" placeholder="Giá">
+        <input type="text" id="category" placeholder="Thể loại">
+        <input type="date" id="releaseDate" placeholder="Ngày phát hành">
+        <button onclick="addOrUpdateBook()">Thêm/Sửa sách</button>
+    </div>
+    <script>
+        // Dữ liệu mẫu sách
+        let books = [
+            { title: "Sách 1", author: "Tác giả 1", price: 20, category: "Loại 1", releaseDate: "2023-01-01" },
+            { title: "Sách 2", author: "Tác giả 2", price: 30, category: "Loại 2", releaseDate: "2022-12-15" }
+        ];
+
+        let editedBookIndex = -1;
+
+        // Hiển thị danh sách sách
+        function displayBooks() {
+            const booksList = document.getElementById('booksList');
+            booksList.innerHTML = '';
+            books.forEach((book, index) => {
+                const bookItem = document.createElement('div');
+                bookItem.className = 'book-item';
+                bookItem.innerHTML = `<strong>${book.title}</strong> - Tg: ${book.author} - Giá: ${book.price} - Thể loại: ${book.category} - Ngày xuất bản: ${book.releaseDate} 
+                <button onclick="editBook(${index})">Sửa</button> 
+                <button onclick="deleteBook(${index})">Xóa</button>`;
+                booksList.appendChild(bookItem);
+            });
+        }
+
+        displayBooks();
+
+        // Tìm kiếm sách
+        function searchBooks() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const filteredBooks = books.filter(book =>
+                book.title.toLowerCase().includes(searchInput) ||
+                book.author.toLowerCase().includes(searchInput) ||
+                book.category.toLowerCase().includes(searchInput)
+            );
+            displayBooks(filteredBooks);
+        }
+
+        // Thêm hoặc cập nhật sách
+        function addOrUpdateBook() {
+            const title = document.getElementById('title').value;
+            const author = document.getElementById('author').value;
+            const price = document.getElementById('price').value;
+            const category = document.getElementById('category').value;
+            const releaseDate = document.getElementById('releaseDate').value;
+
+            if (editedBookIndex === -1) {
+                // Thêm sách mới
+                books.push({ title, author, price, category, releaseDate });
+            } else {
+                // Sửa sách
+                books[editedBookIndex] = { title, author, price, category, releaseDate };
+                editedBookIndex = -1;
+            }
+
+            displayBooks();
+            clearInputs();
+        }
+
+        // Sửa thông tin sách
+        function editBook(index) {
+            editedBookIndex = index;
+            const book = books[index];
+            document.getElementById('title').value = book.title;
+            document.getElementById('author').value = book.author;
+            document.getElementById('price').value = book.price;
+            document.getElementById('category').value = book.category;
+            document.getElementById('releaseDate').value = book.releaseDate;
+
+            // Hiển thị tab thêm/sửa sách khi sửa
+            showAddUpdateTab();
+        }
+
+        // Xóa sách
+        function deleteBook(index) {
+            books.splice(index, 1);
+            displayBooks();
+        }
+
+        // Xóa các input sau khi thêm hoặc sửa sách
+        function clearInputs() {
+            document.getElementById('title').value = '';
+            document.getElementById('author').value = '';
+            document.getElementById('price').value = '';
+            document.getElementById('category').value = '';
+            document.getElementById('releaseDate').value = '';
+        }
+
+        // Hiển thị tab thêm/sửa sách
+        function showAddUpdateTab() {
+            document.getElementById('addUpdateTab').style.display = 'block';
+        }
+
+        // Ẩn tab thêm/sửa sách
+        function hideAddUpdateTab() {
+            document.getElementById('addUpdateTab').style.display = 'none';
+        }
+
+        // Hiển thị hoặc ẩn tab thêm/sửa sách khi nhấp vào nút "Thêm"
+        function toggleAddUpdateTab() {
+            const addUpdateTab = document.getElementById('addUpdateTab');
+            addUpdateTab.style.display === 'none' ? showAddUpdateTab() : hideAddUpdateTab();
+        }
+    </script>
+</body>
+</html>
