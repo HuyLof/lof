@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lab 6 - EX1</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #eee;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 20px;
+            text-align: justify;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Styles for buttons in Lab 6 section */
+        .lab6-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .lab6-buttons button {
+            border-radius: 5px;
+            border: 2px solid #d92cf9;
+            padding: 10px;
+            background-color: #d92cf9;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .lab6-buttons button:hover {
+            background-color: #fff;
+            color: #d92cf9;
+        }
+
+        /* Additional styling for the Lab 4 section */
+        #lab4 {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+        }
+
+        #lab4 h2 {
+            color: #333;
+        }
+
+        #lab4 ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #lab4 ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Additional styling for the About Me section */
+        #about {
+            background-color: #fff;
+            padding: 40px 20px;
+        }
+
+        #about h2 {
+            color: #333;
+        }
+
+        #about p {
+            color: #666;
+        }
+
+        /* Additional styling for the Welcome Hero section */
+        #welcome-hero {
+            background-color: #f4f4f4;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        #welcome-hero h2 {
+            color: #333;
+        }
+
+        #welcome-hero p {
+            color: #666;
+        }
+
+        #welcome-hero a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #d92cf9;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #welcome-hero a:hover {
+            background-color: #333;
+        }
+
+        /* Additional styling for the Education section */
+        #education {
+            background-color: #fff;
+            padding: 40px 20px;
+        }
+
+        #education h2 {
+            color: #333;
+        }
+
+        .education-horizontal-timeline {
+            margin-top: 30px;
+        }
+
+        .single-horizontal-timeline {
+            margin-bottom: 30px;
+        }
+
+        /* Additional styling for the Skills section */
+        #skills {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+        }
+
+        #skills h2 {
+            color: #333;
+        }
+
+        .single-skill-content {
+            margin-bottom: 30px;
+        }
+
+        .barWrapper {
+            margin-bottom: 15px;
+        }
+
+        .progressText {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .single-progress-txt {
+            text-align: center;
+        }
+
+        /* Additional styling for the Clients section */
+        #clients {
+            background-color: #fff;
+            padding: 40px 20px;
+        }
+
+        #clients h2 {
+            color: #333;
+        }
+
+        .clients-area {
+            text-align: center;
+        }
+
+        .owl-theme .owl-nav [class*=owl-] {
+            margin-top: 10px;
+        }
+
+        /* Additional styling for the Contact section */
+        #contact {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+        }
+
+        #contact h2 {
+            color: #333;
+        }
+
+        .single-contact-box {
+            margin-bottom: 30px;
+        }
+
+        .contact-form form {
+            margin-top: 20px;
+        }
+
+        /* Additional styling for the Download Resume link */
+        #welcome-hero a[download] {
+            background-color: #333;
+        }
+
+        #welcome-hero a[download]:hover {
+            background-color: #d92cf9;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Ex1 F-Pattern Design</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" onclick="openTab('home')">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#" onclick="openTab('design')">Design</a></li>
+            <li><a href="#" onclick="openTab('implementation')">Implementation</a></li>
+        </ul>
+    </nav>
+    <div id="home" class="tab-content">
+        <section>
+            <h2>Welcome to our website!</h2>
+            <p>This is a simple F-pattern design example. You can customize the content of this section based on your needs.</p>
+        </section>
+
+        <section>
+            <h2>What we offer</h2>
+            <p>Explore our services and offerings in this section. Feel free to add more details about your products or services.</p>
+        </section>
+
+        <section>
+            <h2>Contact Us</h2>
+            <p>If you have any questions or inquiries, don't hesitate to reach out to us. We're here to help!</p>
+        </section>
+    </div>
+        <section id="design" class="tab-content">
+            <h2>Design Tab Content</h2>
+            <img src="assets\images\Screenshot 2023-12-21 090715.png" alt="error">
+        </section>
+
+        <section id="implementation" class="tab-content">
+            <h2>Implementation Tab Content</h2>
+            <img src="assets\images\Screenshot 2023-12-21 083115.png" alt="error">
+        </section>
+
+        <footer>
+            &copy; 2023 Konami
+        </footer>
+
+        <script>
+            function openTab(tabName) {
+        var i, tabContent;
+        tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+    }
+        </script>
+    
+</body>
+</html>

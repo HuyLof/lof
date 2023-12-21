@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab 6 - EX2</title>
+   <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header, main, footer {
+    margin: 20px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+/* Your existing styles here */
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+   </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Ex2 Z-Pattern Design</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#" onclick="openTab('featured-dish')">Featured Dish</a></li>
+                    <li><a href="#" onclick="openTab('menu')">Our Menu</a></li>
+                    <li><a href="#" onclick="openTab('design')">Design</a></li>
+                    <li><a href="#" onclick="openTab('implementation')">Implementation</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="featured-dish" class="tab-content">
+                <h2>Featured Dish</h2>
+                <img src="assets\images\am-thuc-viet-nam-1.jpg" alt="Delicious Dish">
+                <p>Explore the exquisite flavors of our featured dish. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </section>
+
+            <section id="menu" class="tab-content">
+                <h2>Our Menu</h2>
+                <div class="menu-item">
+                    <img src="https://hangngoainhap.net.vn/upload/news/nh-bia-7732.PNG" alt="Spaghetti Bolognese">
+                    <h3>Spaghetti Bolognese</h3>
+                    <p>Classic Italian dish with savory meat sauce and al dente pasta.</p>
+                </div>
+                <div class="menu-item">
+                    <img src="https://www.allrecipes.com/thmb/-f2KZw5-FAQySoWerBH791b4pbM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9405891-e0521a3a5e01423d9f6b0a452ae5ff93.jpg" alt="Grilled Salmon" style="height: 300px; width: auto;">
+                    <h3>Grilled Salmon</h3>
+                    <p>Fresh salmon fillet seasoned and grilled to perfection.</p>
+                </div>
+                <div class="menu-item">
+                    <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/pesto-pizza-93f270b.jpg?quality=90&resize=500,454" alt="Vegetarian Pizza">
+                    <h3>Vegetarian Pizza</h3>
+                    <p>Delicious pizza topped with a variety of fresh vegetables and cheese.</p>
+                </div>
+            </section>
+
+            <section id="design" class="tab-content">
+                <h2>Design Tab Content</h2>
+               <img src="assets\images\Screenshot 2023-12-21 085628.png" alt="Can't load this image">
+            </section>
+
+            <section id="implementation" class="tab-content">
+                <h2>Implementation Tab Content</h2>
+                <img src="assets\images\Screenshot 2023-12-19 215650.png" alt="Can't load this image">
+            </section>
+            
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Konami</p>
+        </footer>
+    </div>
+
+    <script>
+        function openTab(tabName) {
+    var i, tabContent;
+    tabContent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display = "block";
+}
+
+    </script>
+</body>
+</html>
